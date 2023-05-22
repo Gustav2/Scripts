@@ -295,3 +295,4 @@ pyrightconfig.json
 /.idea/modules.xml
 /.idea/Scripts.iml
 /.idea/vcs.xml
+test.py
