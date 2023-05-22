@@ -4,6 +4,7 @@ def gcd(a, b):
     else:
         return gcd(b, a % b)
 
+
 def print_gcd(a, d):
     q = a // d
     r = a % d
@@ -17,6 +18,7 @@ def print_gcd(a, d):
         print(f"{a} = {q} * {d} + {r}")
         return print_gcd(d, r)
 
+
 def extended_gcd(a, b):
     if b == 0:
         return a, 1, 0
@@ -25,6 +27,7 @@ def extended_gcd(a, b):
     x = y1
     y = x1 - (a // b) * y1
     return gcd, x, y
+
 
 def print_bezout(a, b):
     gcd, x, y = extended_gcd(a, b)
@@ -55,13 +58,14 @@ def print_diofantic(a, b, c):
     print("-------------------")
 
 
-def print_all(a, b, c=0):
+def print_all(a, b, *c):
     print("GREAT COMMON DIVISOR")
     print("-------------------")
     print_gcd(a, b)
     print_bezout(a, b)
-    print_diofantic(a, b, c)
+    if c:
+        print_diofantic(a, b, c[0])
 
 
 if __name__ == "__main__":
-    print_all(56, 16, 160)
+    print_all(41, 30, 3)
