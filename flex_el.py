@@ -16,6 +16,7 @@ def get_data(is_west: bool = True):
 def parse_data(arg_data):
     # convert time
     today_date = dt.strptime(arg_data["PriceDate"], '%Y-%m-%dT%H:%M:%SZ')
+    print(f"Prices for: {today_date.date()}")
 
     prices = [i["value"] for i in arg_data["DisplayPrices"]]
     prices = np.array(prices)
@@ -28,13 +29,14 @@ def parse_data(arg_data):
 
     print(f"MOST EXPENSIVE: {prices[max_index]} at {max_time}")
     print(f"CHEAPEST: {prices[min_index]} at {min_time}")
+    print(" ")
 
 def get_today_prices():
-    parse_data(get_data()[0])
+    parse_data(get_data()[1])
 
 
 def get_tomorrow_prices():
-    parse_data(get_data()[1])
+    parse_data(get_data()[0])
 
 
 if __name__ == "__main__":
