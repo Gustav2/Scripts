@@ -68,4 +68,16 @@ def print_all(a, b, *c):
 
 
 if __name__ == "__main__":
-    print_all(41, 30, 3)
+    while True:
+        print("Enter a, b, c (optional) to calculate:")
+        a = input("Enter a: ")
+        b = input("Enter b: ")
+        c = input("Enter c: ")
+        print(" ")
+        print(" ")
+        if c:
+            print_all(int(a), int(b), int(c))
+        else:
+            print_all(int(a), int(b))
+
+        print(" ")
